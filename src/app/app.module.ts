@@ -14,12 +14,18 @@ import { AppComponent } from './app.component';
 // Components imports
 import { SquareComponent } from './square/square.component';
 import { BoardComponent } from './board/board.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SquareComponent,
-    BoardComponent
+    BoardComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,8 @@ import { BoardComponent } from './board/board.component';
     NbThemeModule.forRoot({ name: 'cosmic' }),
     NbLayoutModule,
     NbEvaIconsModule,
-    NbButtonModule
+    NbButtonModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

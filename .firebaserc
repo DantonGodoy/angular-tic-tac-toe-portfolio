@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fir-host-4c35d": {
+      "hosting": {
+        "angular-tic-tac-toe-portfolio": [
+          "fir-host-4c35d"
+        ]
+      }
+    }
+  }
+}

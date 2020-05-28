@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "angular-tic-tac-toe-portfolio",
+      "public": "dist/angular-tic-tac-toe-portfolio",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

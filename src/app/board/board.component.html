@@ -1,21 +1,26 @@
-<h1>Jogador atual: {{ player }}</h1>
-
-<button
-  (click)="newGame()"
-  nbButton
-  outline
-  status="danger">
-  Começar Novo Jogo
-</button>
-
-<h2 *ngIf="winner">
-  Jogador que escolheu {{ winner }} ganhou o jogo!
-</h2>
-
 <main>
-  <app-square
-    *ngFor="let valor of squares; let i = index;"
-    [value]="valor"
-    (click)="makeMove(i)">
-  </app-square>
+  <h1>Jogador atual: {{ jogador }}</h1>
+
+  <button
+    class="new-game-btn"
+    (click)="novoJogo()"
+    nbButton
+    outline
+    status="danger">
+    Começar Novo Jogo
+  </button>
+
+  <h2 *ngIf="vencedor">
+    Jogador que escolheu "{{ vencedor }}" ganhou o jogo!
+  </h2>
+
+  <section *ngIf="!vencedor" class="board-center">
+    <section class="board-container">
+      <app-square
+        *ngFor="let valor of casinhas; let i = index;"
+        [value]="valor"
+        (click)="fazJogada(i)">
+      </app-square>
+    </section>
+  </section>
 </main>

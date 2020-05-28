@@ -1,10 +1,50 @@
-main {
+h1 {
+  @media only screen and (min-width: 600px) {
+    text-align: left;
+  }
+
+  text-align: center;
+}
+
+.new-game-btn {
+  @media only screen and (min-width: 600px) {
+    width: unset;
+  }
+
+  width: 100%;
+  margin-bottom: 36px;
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: 36px;
+}
+
+h1, h2 {
+  font-family: 'Tenali Ramakrishna', sans-serif;
+}
+
+.board-center {
+  display: flex;
+  justify-content: center;
+}
+
+.board-container {
+  @media only screen and (min-width: 600px) {
+    grid-template-columns: 200px 200px 200px;
+    grid-gap: 6px;
+  }
+
   display: grid;
-  grid-template-columns: 200px 200px 200px;
-  grid-gap: 0px;
+  grid-template-columns: 100px 100px 100px;
+  grid-gap: 2px;
 }
 
 app-square {
+  @media only screen and (min-width: 600px) {
+    height: 200px;
+  }
+
   border: 1px gray solid;
-  height: 200px;
+  height: 100px;
 }

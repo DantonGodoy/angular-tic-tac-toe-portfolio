@@ -7,36 +7,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
 
-  squares: any[];
+  casinhas: any[];
   xIsNext: boolean;
-  winner: string;
-
-  constructor() { }
+  vencedor: string;
 
   ngOnInit(): void {
-    this.newGame();
+    this.novoJogo();
   }
 
-  newGame() {
-    this.squares = Array(9).fill(null);
-    this.xIsNext = true;
-    this.winner = null;
-  }
-
-  get player() {
+  get jogador(): string {
     return this.xIsNext ? 'X' : 'O';
   }
 
-  makeMove(idx: number) {
-    if (!this.squares[idx]) {
-      this.squares.splice(idx, 1, this.player);
-      this.xIsNext = !this.xIsNext;
-    }
-
-    this.winner = this.calculateWinner();
+  novoJogo() {
+    this.casinhas = Array(9).fill(null);
+    this.xIsNext = true;
+    this.vencedor = null;
   }
 
-  calculateWinner() {
+  fazJogada(idx: number) {
+    if (!this.casinhas[idx]) {
+      this.casinhas.splice(idx, 1, this.jogador);
+      this.xIsNext = !this.xIsNext;
+    }
+    this.vencedor = this.calculaVencedor();
+  }
+
+  calculaVencedor() {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -52,11 +49,11 @@ export class BoardComponent implements OnInit {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (
-        this.squares[a] &&
-        this.squares[a] === this.squares[b] &&
-        this.squares[a] === this.squares[c]
+        this.casinhas[a] &&
+        this.casinhas[a] === this.casinhas[b] &&
+        this.casinhas[a] === this.casinhas[c]
       ) {
-        return this.squares[a];
+        return this.casinhas[a];
       }
     }
     return null;
